@@ -1,0 +1,26 @@
+version: "3.4"
+
+services:
+  monicahq:
+    image: monicahq/monicahq
+    container_name: monica_crm
+    depends_on:
+      - mysql
+    ports:
+      - 8088:80
+    env_file: .env
+    volumes:
+      - ./monica_data:/var/www/monica/storage
+    restart: always
+
+  mysql:
+    image: mysql:5.7
+    container_name: monica_mysql
+    environment:
+      - MYSQL_ROOT_PASSWORD=sekret_root_password
+      - MYSQL_DATABASE=monica
+      - MYSQL_USER=homestead
+      - MYSQL_PASSWORD=secret
+    volumes:
+      - ./monica_mysql:/var/lib/mysql
+    restart: always
