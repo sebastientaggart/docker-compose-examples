@@ -6,6 +6,8 @@ Luckily there is an unofficial Bitwarden-compatible server that ships as a singl
 
 The `docker-compose.yml` in this project is based on `bitwarden_rs`, and is configured here to run behind a proxy.  In my case, a Caddy proxy.
 
+NOTE: be sure to enable `/admin`, log in, and set the `Domain URL` under `General Settings`, otherwise emails will send with incorrect URL paths and verifications will fail.
+
 ## Caddy Proxy Configuration
 
 Assumptions (see [global assumptions](../README.md) for more details):
